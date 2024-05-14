@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Typography, TextField, Grid, Button, Link, Modal, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { useNavigate } from 'react-router-dom';
 
 function AccountCreationModal({ open, handleClose }) {
   const theme = useTheme();
@@ -19,11 +20,12 @@ function AccountCreationModal({ open, handleClose }) {
   };
 
   const handleSubmit = () => {
-    // Implement submission logic here
-    console.log("Submitting account creation form:", formData);
-    // Close the modal after submission
     handleClose();
   };
+
+  if (!open) {
+    return null;
+  }
 
   return (
     <Modal open={open} onClose={handleClose}>
@@ -125,30 +127,35 @@ function AccountCreationModal({ open, handleClose }) {
 }
 
 function Login(props) {
+  const navigate = useNavigate();
+
   const theme = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isAccountCreationOpen, setAccountCreationOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // Call API to submit login credentials
     console.log("Logging in with:", { email, password });
+    setIsLoggedIn(true);
+    navigate('/dashboard');
   };
 
   const handleForgotPassword = () => {
-    // Navigate to forgot password form or perform necessary action
     console.log("Forgot Password");
   };
 
   const handleCreateAccount = () => {
-    // Toggle visibility of account creation modal
     setAccountCreationOpen(true);
   };
 
   const handleCloseAccountCreation = () => {
-    // Close the account creation modal
     setAccountCreationOpen(false);
   };
+
+  if (isLoggedIn) {
+    return null;
+  }
 
   return (
     <Container maxWidth="xs">

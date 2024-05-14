@@ -7,16 +7,24 @@ import theme from './component/Theme';
 import Footer from './component/Footer';
 import Home from './screen/Home';
 import Login from './screen/Login';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './screen/Dashboard';
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Navbar />
-        <Home/>
-        <Login/>
-        <Footer/>
-      </ThemeProvider>    </Provider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
