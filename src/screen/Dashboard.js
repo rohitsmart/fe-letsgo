@@ -18,6 +18,13 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import TrainIcon from '@mui/icons-material/Train';
 import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
+import TrainRailIcon from '@mui/icons-material/TrainRounded';
+import TrainCoachIcon from '@mui/icons-material/DirectionsRailway';
+import TrainRouteIcon from '@mui/icons-material/Directions';
+import TrainStationIcon from '@mui/icons-material/Train';
+import FlightTicketIcon from '@mui/icons-material/FlightTakeoff';
+import FlightRouteIcon from '@mui/icons-material/FlightLand';
+import HotelBedIcon from '@mui/icons-material/KingBed';
 
 const drawerWidth = 240;
 
@@ -37,9 +44,24 @@ const useStyles = makeStyles((theme) => ({
 function Dashboard() {
   const classes = useStyles();
   const [openCMS, setOpenCMS] = useState(false);
+  const [openTrain, setOpenTrain] = useState(false);
+  const [openFlight, setOpenFlight] = useState(false);
+  const [openHotel, setOpenHotel] = useState(false);
 
   const handleCMSSubmenuClick = () => {
     setOpenCMS(!openCMS);
+  };
+
+  const handleTrainSubmenuClick = () => {
+    setOpenTrain(!openTrain);
+  };
+
+  const handleFlightSubmenuClick = () => {
+    setOpenFlight(!openFlight);
+  };
+
+  const handleHotelSubmenuClick = () => {
+    setOpenHotel(!openHotel);
   };
 
   return (
@@ -63,18 +85,61 @@ function Dashboard() {
           </ListItem>
           <Collapse in={openCMS} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button key="Train">
+              <ListItem button key="Train" onClick={handleTrainSubmenuClick}>
                 <ListItemIcon><TrainIcon /></ListItemIcon>
                 <ListItemText primary="Train" />
+                {openTrain ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
-              <ListItem button key="Flight">
+              <Collapse in={openTrain} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem button key="Rail">
+                    <ListItemIcon><TrainRailIcon /></ListItemIcon>
+                    <ListItemText primary="Rail" />
+                  </ListItem>
+                  <ListItem button key="Coach">
+                    <ListItemIcon><TrainCoachIcon /></ListItemIcon>
+                    <ListItemText primary="Coach" />
+                  </ListItem>
+                  <ListItem button key="Route">
+                    <ListItemIcon><TrainRouteIcon /></ListItemIcon>
+                    <ListItemText primary="Route" />
+                  </ListItem>
+                  <ListItem button key="Station">
+                    <ListItemIcon><TrainStationIcon /></ListItemIcon>
+                    <ListItemText primary="Station" />
+                  </ListItem>
+                </List>
+              </Collapse>
+              <ListItem button key="Flight" onClick={handleFlightSubmenuClick}>
                 <ListItemIcon><FlightIcon /></ListItemIcon>
                 <ListItemText primary="Flight" />
+                {openFlight ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
-              <ListItem button key="Hotel">
+              <Collapse in={openFlight} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem button key="Ticket">
+                    <ListItemIcon><FlightTicketIcon /></ListItemIcon>
+                    <ListItemText primary="Ticket" />
+                  </ListItem>
+                  <ListItem button key="Route">
+                    <ListItemIcon><FlightRouteIcon /></ListItemIcon>
+                    <ListItemText primary="Route" />
+                  </ListItem>
+                </List>
+              </Collapse>
+              <ListItem button key="Hotel" onClick={handleHotelSubmenuClick}>
                 <ListItemIcon><HotelIcon /></ListItemIcon>
                 <ListItemText primary="Hotel" />
+                {openHotel ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
+              <Collapse in={openHotel} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem button key="Bed">
+                    <ListItemIcon><HotelBedIcon /></ListItemIcon>
+                    <ListItemText primary="Bed" />
+                  </ListItem>
+                </List>
+              </Collapse>
             </List>
           </Collapse>
           <ListItem button key="Users">
