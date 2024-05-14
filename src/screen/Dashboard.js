@@ -84,14 +84,14 @@ function Dashboard() {
             {openCMS ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </ListItem>
           <Collapse in={openCMS} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
+            <List component="div" disablePadding  style={{ paddingLeft: '20px' }}>
               <ListItem button key="Train" onClick={handleTrainSubmenuClick}>
                 <ListItemIcon><TrainIcon /></ListItemIcon>
                 <ListItemText primary="Train" />
                 {openTrain ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={openTrain} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
+                <List component="div" disablePadding style={{ paddingLeft: '20px' }}>
                   <ListItem button key="Rail">
                     <ListItemIcon><TrainRailIcon /></ListItemIcon>
                     <ListItemText primary="Rail" />
@@ -116,7 +116,7 @@ function Dashboard() {
                 {openFlight ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={openFlight} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
+                <List component="div" disablePadding style={{ paddingLeft: '20px' }}>
                   <ListItem button key="Ticket">
                     <ListItemIcon><FlightTicketIcon /></ListItemIcon>
                     <ListItemText primary="Ticket" />
@@ -133,7 +133,7 @@ function Dashboard() {
                 {openHotel ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </ListItem>
               <Collapse in={openHotel} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
+                <List component="div" disablePadding style={{ paddingLeft: '20px' }}>
                   <ListItem button key="Bed">
                     <ListItemIcon><HotelBedIcon /></ListItemIcon>
                     <ListItemText primary="Bed" />
