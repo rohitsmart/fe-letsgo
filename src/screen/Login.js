@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Grid, Button, Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 function Login(props) {
   const theme = useTheme();
@@ -24,7 +25,7 @@ function Login(props) {
 
   return (
     <Container maxWidth="xs">
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom sx={{ color: theme.palette.primary.main }}>
         Login
       </Typography>
       <form>
@@ -36,6 +37,8 @@ function Login(props) {
               variant="outlined"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              InputProps={{ sx: { color: theme.palette.primary.main } }}
+              InputLabelProps={{ sx: { color: theme.palette.primary.main } }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -46,6 +49,8 @@ function Login(props) {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              InputProps={{ sx: { color: theme.palette.primary.main } }}
+              InputLabelProps={{ sx: { color: theme.palette.primary.main } }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -54,17 +59,35 @@ function Login(props) {
               variant="contained"
               color="primary"
               onClick={handleLogin}
+              sx={{ backgroundColor: theme.palette.primary.main }}
             >
               Login
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Link href="#" variant="body2" onClick={handleForgotPassword}>
+            <Link
+              href="#"
+              variant="body2"
+              onClick={handleForgotPassword}
+              sx={{ color: theme.palette.secondary.main }}
+            >
               Forgot Password?
             </Link>
           </Grid>
           <Grid item xs={6}>
-            <Button fullWidth variant="outlined" onClick={handleCreateAccount}>
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={handleCreateAccount}
+              sx={{
+                backgroundColor: theme.palette.secondary.main,
+                color: theme.palette.primary.main,
+                '&:hover': {
+                  backgroundColor: theme.palette.secondary.dark,
+                },
+              }}
+              startIcon={<PersonAddIcon />}
+            >
               Create Account
             </Button>
           </Grid>
