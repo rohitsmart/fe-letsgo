@@ -15,12 +15,14 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
+          <Navbar /> {/* Render Navbar component */}
+          <div style={{ marginTop: '64px' }}> {/* Adjust margin top to accommodate Navbar height */}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Routes>
+          </div>
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
