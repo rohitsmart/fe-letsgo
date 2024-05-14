@@ -1,3 +1,4 @@
+import React from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
 import store from './redux/Store';
@@ -24,7 +25,10 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard/*" element={<Dashboard />} />
-              <Route path="/dashboard/train/*" element={<TrainManagement />} />
+              <Route path="/dashboard/train/*" element={<Dashboard />} />
+              <Route path="/dashboard/flight/*" element={<Dashboard />} />
+              <Route path="/dashboard/hotel/*" element={<Dashboard />} />
+              <Route path="/dashboard/train/rail" element={<TrainManagement />} />
               <Route path="/dashboard/flight/*" element={<FlightManagement />} />
               <Route path="/dashboard/hotel/*" element={<HotelManagement />} />
             </Routes>
