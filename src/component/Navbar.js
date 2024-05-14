@@ -141,7 +141,7 @@ import Login from '../screen/Login';
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(null);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false); // State to control the opening of the login modal
+  const [loginOpen, setLoginOpen] = useState(false);
   const theme = useTheme();
 
   const handleMenuOpen = (event) => {
