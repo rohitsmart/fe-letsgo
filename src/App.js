@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import './App.css';
 import store from './redux/Store';
 import Navbar from './component/Navbar';
 import { ThemeProvider } from '@emotion/react';
