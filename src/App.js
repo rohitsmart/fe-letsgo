@@ -9,18 +9,24 @@ import Home from './screen/Home';
 import Login from './screen/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './screen/Dashboard';
+import TrainManagement from './screen/Train/TrainManagement';
+import FlightManagement from './screen/Flight/FlightManagement';
+import HotelManagement from './screen/Hotel/HotelManagement';
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Navbar /> {/* Render Navbar component */}
-          <div style={{ marginTop: '64px' }}> {/* Adjust margin top to accommodate Navbar height */}
+          <Navbar />
+          <div style={{ marginTop: '64px' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/*" element={<Dashboard />} />
+              <Route path="/dashboard/train/*" element={<TrainManagement />} />
+              <Route path="/dashboard/flight/*" element={<FlightManagement />} />
+              <Route path="/dashboard/hotel/*" element={<HotelManagement />} />
             </Routes>
           </div>
           <Footer />
