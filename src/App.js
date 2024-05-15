@@ -20,13 +20,11 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <div style={{ marginTop: '64px', display: 'flex' }}>
-            {/* Always render Dashboard */}
             <Dashboard />
             <div style={{ marginLeft: '240px', flex: 1 }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                {/* Add other routes here */}
                 <Route path="/dashboard/train/rail" element={<TrainManagement />} />
                 <Route path="/dashboard/flight/*" element={<FlightManagement />} />
                 <Route path="/dashboard/hotel/*" element={<HotelManagement />} />
