@@ -56,7 +56,6 @@ function Dashboard() {
   const location = useLocation();
 
   useEffect(() => {
-    // Set active menu item based on current route
     const path = location.pathname.split('/');
     setActiveMenu(path[2]);
   }, [location.pathname]);
@@ -225,7 +224,6 @@ function Dashboard() {
         </List>
       </Drawer>
       <div className={classes.content}>
-        {/* Center screen content */}
       </div>
     </>
   );
