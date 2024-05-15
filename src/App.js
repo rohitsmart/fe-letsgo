@@ -12,8 +12,7 @@ import Layout from './screen/layout/Layout';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const isLoggedIn = useSelector(state => state.test.isLoggedIn);
-  console.log('isLogin', isLoggedIn)
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -21,14 +20,9 @@ function App() {
           <div>
             <Routes>
               <Route path='' element={<Layout />} >
-                {
-                  isLoggedIn ? (<>  <Route path='/' element={<Dashboard />} />
-                    <Route path="/dashboard/train/rail" element={<TrainManagement />} />
-                    <Route path="/dashboard/flight/*" element={<FlightManagement />} />
-                    <Route path="/dashboard/hotel/*" element={<HotelManagement />} /></>) :
-                     (<>  <Route path="/" element={<Home />} />
-                      <Route path="/login" element={<Login />} /></>)
-                }
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                
               </Route>
             </Routes>
           </div>
