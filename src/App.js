@@ -1,6 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './redux/Store';
 import Navbar from './component/Navbar';
 import { ThemeProvider } from '@emotion/react';
 import theme from './component/Theme';
@@ -15,13 +13,12 @@ import HotelManagement from './screen/Hotel/HotelManagement';
 
 function App() {
   return (
-    <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Navbar />
-          <div style={{ marginTop: '64px', display: 'flex' }}>
-            <Dashboard />
-            <div style={{ marginLeft: '240px', flex: 1 }}>
+          <div>
+            {/* <Dashboard /> */}
+            <div>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
@@ -34,7 +31,6 @@ function App() {
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
-    </Provider>
   );
 }
 

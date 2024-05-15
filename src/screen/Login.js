@@ -3,7 +3,8 @@ import { Container, Typography, TextField, Grid, Button, Link, Modal, Box } from
 import { useTheme } from '@mui/material/styles';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { saveAuthToken } from '../store/Reducers/testSlice';
 function AccountCreationModal({ open, handleClose }) {
   const theme = useTheme();
   const [formData, setFormData] = useState({
@@ -128,7 +129,7 @@ function AccountCreationModal({ open, handleClose }) {
 
 function Login(props) {
   const navigate = useNavigate();
-
+  const dispatch= useDispatch();
   const theme = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -137,6 +138,7 @@ function Login(props) {
 
   const handleLogin = () => {
     console.log("Logging in with:", { email, password });
+    dispatch(saveAuthToken("test"))
     setIsLoggedIn(true);
     navigate('/dashboard');
   };
