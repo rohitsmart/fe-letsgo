@@ -25,7 +25,8 @@ function App() {
                   isLoggedIn ? (<>  <Route path='/' element={<Dashboard />} />
                     <Route path="/dashboard/train/rail" element={<TrainManagement />} />
                     <Route path="/dashboard/flight/*" element={<FlightManagement />} />
-                    <Route path="/dashboard/hotel/*" element={<HotelManagement />} /></>) : (<>  <Route path="/" element={<Home />} />
+                    <Route path="/dashboard/hotel/*" element={<HotelManagement />} /></>) :
+                     (<>  <Route path="/" element={<Home />} />
                       <Route path="/login" element={<Login />} /></>)
                 }
               </Route>
